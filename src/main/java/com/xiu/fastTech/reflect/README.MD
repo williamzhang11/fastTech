@@ -15,7 +15,7 @@ class对象时一个特殊的对象，它是用来创建其他对象的对象。
 改class对象只能由jvm创建和加载。
 
 
-##手动获取class对象的三种方式：
+## 手动获取class对象的三种方式：
 
 - Class.forName("包名+类名")方法
 - 实例对象的getClass()方法,new MyClass.getClass()
@@ -23,7 +23,8 @@ class对象时一个特殊的对象，它是用来创建其他对象的对象。
 - 针对包装类型的TYPE字段，Boolean.TYPE
 
 
-##典型的类加载过程
+## 典型的类加载过程
+
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/reflect/20170430160610299.png)
 
 - 加载：jvm类加载器，利用字节码文件创建Class对象
@@ -34,7 +35,7 @@ class对象时一个特殊的对象，它是用来创建其他对象的对象。
 
 获取Class对象后，就可以利用反射机制进行需要的操作了。
 
-##反射机制中常用功能的有：
+## 反射机制中常用功能的有：
 - Constructor类，表示Class对象所表示的构造方法，可以用来动态创建对象
 - Field类，表示Class对象所表示的成员变量，可以用来动态修改成员变量的属性值
 - Method类，表示Class对象所表示类的成员方法，可以用来动态调用对象的方法
