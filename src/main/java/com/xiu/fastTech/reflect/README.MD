@@ -24,7 +24,7 @@ class对象时一个特殊的对象，它是用来创建其他对象的对象。
 
 
 ##典型的类加载过程
-![image](/fastTech/src/main/java/com/xiu/fastTech/reflect/20170430160610299.png)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/reflect/20170430160610299.png)
 
 - 加载：jvm类加载器，利用字节码文件创建Class对象
 - 链接：验证，字节码的安全性和完整性。准备，为静态成员分配存储空间。解析当前类对其他类的引用。
