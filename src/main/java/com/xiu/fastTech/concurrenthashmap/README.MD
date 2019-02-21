@@ -3,7 +3,7 @@
 ## 数据结构：
 
 
-##在 jdk1.7下
+## 在 jdk1.7下
 
 数据结构图
 
@@ -153,12 +153,99 @@ ConcurrentHashMap的get方法是非常高效的，因为整个过程没有加锁
 ConcurrentHashMap再jdk1.7中虽然已经解决了并发问题，甚至能支持N个Segment次数的并发，但依然存在的问题，和jdk1.7 HashMap
 中一样的问题--查询遍历链表的效率低
 
+## jdk1.8下的ConcurrentHashMap
+
+### 底层数据结构
+
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/concurrenthashmap/image/jdk1.8concurrenthashmap.jpg)
+
+```
+	static class Node<K,V> implements Map.Entry<K,V> {
+        final int hash;
+        final K key;
+        volatile V val;
+        volatile Node<K,V> next;
+        
+        ...
+    }
+
+```
+jdk1.8中抛弃了原有的Segment分段锁，采用了CAS+synchronized保证并发安全性。
+存储数据的结构HashEntry改为Node。value,next 使用volatile修饰，保证可见性
 
 
+```
 
+public V put(K key, V value) {
+        return putVal(key, value, false);
+    }
 
+    /** Implementation for put and putIfAbsent */
+    final V putVal(K key, V value, boolean onlyIfAbsent) {
+        if (key == null || value == null) throw new NullPointerException();
+        int hash = spread(key.hashCode());
+        int binCount = 0;
+        for (Node<K,V>[] tab = table;;) {
+            Node<K,V> f; int n, i, fh;
+            if (tab == null || (n = tab.length) == 0)
+                tab = initTable();
+            else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
+                if (casTabAt(tab, i, null,
+                             new Node<K,V>(hash, key, value, null)))
+                    break;                   // no lock when adding to empty bin
+            }
+            else if ((fh = f.hash) == MOVED)
+                tab = helpTransfer(tab, f);
+            else {
+                V oldVal = null;
+                synchronized (f) {
+                    if (tabAt(tab, i) == f) {
+                        if (fh >= 0) {
+                            binCount = 1;
+                            for (Node<K,V> e = f;; ++binCount) {
+                                K ek;
+                                if (e.hash == hash &&
+                                    ((ek = e.key) == key ||
+                                     (ek != null && key.equals(ek)))) {
+                                    oldVal = e.val;
+                                    if (!onlyIfAbsent)
+                                        e.val = value;
+                                    break;
+                                }
+                                Node<K,V> pred = e;
+                                if ((e = e.next) == null) {
+                                    pred.next = new Node<K,V>(hash, key,
+                                                              value, null);
+                                    break;
+                                }
+                            }
+                        }
+                        else if (f instanceof TreeBin) {
+                            Node<K,V> p;
+                            binCount = 2;
+                            if ((p = ((TreeBin<K,V>)f).putTreeVal(hash, key,
+                                                           value)) != null) {
+                                oldVal = p.val;
+                                if (!onlyIfAbsent)
+                                    p.val = value;
+                            }
+                        }
+                    }
+                }
+                if (binCount != 0) {
+                    if (binCount >= TREEIFY_THRESHOLD)
+                        treeifyBin(tab, i);
+                    if (oldVal != null)
+                        return oldVal;
+                    break;
+                }
+            }
+        }
+        addCount(1L, binCount);
+        return null;
+    }
 
-
+```
 
 
 
