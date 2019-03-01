@@ -151,10 +151,11 @@ get方法
 ConcurrentHashMap的get方法是非常高效的，因为整个过程没有加锁
 
 ConcurrentHashMap再jdk1.7中虽然已经解决了并发问题，甚至能支持N个Segment次数的并发，但依然存在的问题，和jdk1.7 HashMap
-中一样的问题--查询遍历链表的效率低
+中一样的问题--查询遍历链表的效率低。另外JDK1.7下Segment的数量是无法扩容的。
 
 ## jdk1.8下的ConcurrentHashMap
 
+数据结构：数组+链表+红黑树
 ### 底层数据结构
 
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/concurrenthashmap/image/jdk1.8concurrenthashmap.jpg)
@@ -170,7 +171,7 @@ ConcurrentHashMap再jdk1.7中虽然已经解决了并发问题，甚至能支持
     }
 
 ```
-jdk1.8中抛弃了原有的Segment分段锁，采用了CAS+synchronized保证并发安全性。
+jdk1.8中抛弃了原有的Segment锁分段技术，采用了CAS算法（利用CAS尝试写入，失败则自旋保证成功）+synchronized保证并发安全性。
 存储数据的结构HashEntry改为Node。value,next 使用volatile修饰，保证可见性
 
 
@@ -183,20 +184,25 @@ public V put(K key, V value) {
     /** Implementation for put and putIfAbsent */
     final V putVal(K key, V value, boolean onlyIfAbsent) {
         if (key == null || value == null) throw new NullPointerException();
+        //第一步：根据key计算出hash
         int hash = spread(key.hashCode());
         int binCount = 0;
         for (Node<K,V>[] tab = table;;) {
             Node<K,V> f; int n, i, fh;
+            //第二步：判断tab是否需要初始化
             if (tab == null || (n = tab.length) == 0)
                 tab = initTable();
+                //第三步：f即为当前key定位出的 NODE，如果 当前位置为空，则可直接写入数据，利用CAS尝试写入，失败则自旋保证成功
             else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
                 if (casTabAt(tab, i, null,
                              new Node<K,V>(hash, key, value, null)))
                     break;                   // no lock when adding to empty bin
             }
+            //第四步：判断是否需要扩容
             else if ((fh = f.hash) == MOVED)
                 tab = helpTransfer(tab, f);
             else {
+            //第五步:都不满足，则利用synchronized锁写入数据。
                 V oldVal = null;
                 synchronized (f) {
                     if (tabAt(tab, i) == f) {
@@ -233,6 +239,7 @@ public V put(K key, V value) {
                     }
                 }
                 if (binCount != 0) {
+                //第六步：如果数量大于TREEIFY_THRESHOLD（默认8），转换成红黑树
                     if (binCount >= TREEIFY_THRESHOLD)
                         treeifyBin(tab, i);
                     if (oldVal != null)
