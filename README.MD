@@ -5,11 +5,11 @@
 - java反射机制 		--》			reflect
 - HashMap底层实现原理	--》			hashmap
 - ConcurrentHashMap底层实现原理  --》 concurrenthashmap
-
+- ArrayList底层原理实现     --》 arraylist
+- LinkedList底层原理实现 --》 linkedlist
 
 计划中
 - LinkedList
-- ArrayList
 - ThreadLocal
 - synchronized实现原理 http://www.iocoder.cn/JUC/sike/synchronized/?vip
 - volatile
