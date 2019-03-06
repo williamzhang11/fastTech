@@ -11,7 +11,9 @@ public class LinkedHashMap<K,V>
 
 ```
 
-	LinkedHashMap继承了HashMap,LinkedHashMap也继承和使用了HashMap的数据结构，即哈希表（数组+链表）单链表长度超过8时转化为红黑树。除此外LinkdHashMap还维护了一个双向链表，用来解决Hashap无法保持遍历顺序和插入顺序一致的问题，同时也提供了访问顺序支持，即LRU(最近最少使用)原则。
+	LinkedHashMap继承了HashMap,LinkedHashMap也继承和使用了HashMap的数据结构，即哈希表（数组+链表）
+	单链表长度超过8时转化为红黑树。除此外LinkdHashMap还维护了一个双向链表，用来解决Hashap无法保持遍历顺序
+	和插入顺序一致的问题，同时也提供了访问顺序支持，即LRU(最近最少使用)原则。
 
 	因此LinkedHashMap的数据结构为：数组+单向链表+红黑树+双向链表
 
@@ -32,7 +34,8 @@ public class LinkedHashMap<K,V>
     	}
 ```
 	
-	LinkedhashMap中并没有put/remove方法，而是调用父类HashMap的put/remove方法，只不过在生成新节点时，LinkedHashMap重写了HashMap中的newNode方法。
+	LinkedhashMap中并没有put/remove方法，而是调用父类HashMap的put/remove方法，只不过在生成新节点时，
+LinkedHashMap重写了HashMap中的newNode方法。
 	重写例子可参考：com.xiu.fastTech.linkedhashmap.override包下
 	
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/linkedhashmap/image/linkedHashmapput.jpg)
@@ -41,7 +44,8 @@ public class LinkedHashMap<K,V>
 	
 ## LinkedHashMap的特点：
 	
-	1.LinkedHashMap拥有与HashMap相同的底层哈希结构，即数组+单链表+红黑树，另外LinkedHashMap内部通过Entry维护了一个双向链表
+	1.LinkedHashMap拥有与HashMap相同的底层哈希结构，即数组+单链表+红黑树，另外LinkedHashMap内部通过
+	Entry维护了一个双向链表
 	
 	2.HashMap元素的遍历不一定与元素插入顺序相同，而LinkedHashMap则通过遍历双向链表获取元素，遍历顺序与插入顺序是一致的。
 	
