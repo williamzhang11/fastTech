@@ -2,14 +2,15 @@
 本项目为maven项目，直接使用maven方式导入即可。
 
 目前已整理的技术以及对应的包名如下：
-- java反射机制 		--》			reflect
-- HashMap底层实现原理	--》			hashmap
-- ConcurrentHashMap底层实现原理  --》 concurrenthashmap
-- ArrayList底层原理实现     --》 arraylist
-- LinkedList底层原理实现 --》 linkedlist
+- java反射机制 					--》				reflect
+- HashMap底层实现原理				--》				hashmap
+- LinkedHashMap底层实现原理   	 	--》 				linkedhashmap
+- ConcurrentHashMap底层实现原理  	--》 				concurrenthashmap
+- ArrayList底层原理实现     			--》 				arraylist
+- LinkedList底层原理实现 			--》 				linkedlist
+
 
 计划中
-- LinkedList
 - ThreadLocal
 - synchronized实现原理 http://www.iocoder.cn/JUC/sike/synchronized/?vip
 - volatile
