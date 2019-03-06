@@ -17,7 +17,7 @@ public class LinkedHashMap<K,V>
 
 ## 双向链表的构建过程：
 
-	![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/linkedhashmap/image/linkedhashmap.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/linkedhashmap/image/linkedhashmap.jpg)
 	
 	图中红黄箭头代表插入顺序，蓝箭头代表存储顺序，head表示双向链表的头部，tail代表双向链表的尾部
 	
@@ -35,7 +35,7 @@ public class LinkedHashMap<K,V>
 	LinkedhashMap中并没有put/remove方法，而是调用父类HashMap的put/remove方法，只不过在生成新节点时，LinkedHashMap重写了HashMap中的newNode方法。
 	重写例子可参考：com.xiu.fastTech.linkedhashmap.override包下
 	
-	![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/linkedhashmap/image/linkedHashmapput.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/linkedhashmap/image/linkedHashmapput.jpg)
 	
 	remove方法也是类似的,调用父类的方法，然后重写了维护双向链表的部分。
 	
