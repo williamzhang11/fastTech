@@ -6,7 +6,7 @@
 	1.若它的左子树不空，则左子树上所有的节点值都小于它根节点的值
 	2.若它的右子树不空，则右子树上所有节点值均大于它的根节点的值
 	3.它的左右子树也分别为二叉排序树
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarysorttree/image/binarysorttree.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarysorttree/image/binarysorttree.png)
 
 对二叉查找树进行中序遍历，可以得到有序集合
 
@@ -22,7 +22,7 @@
 	
 	插入，删除节点操作可能会导致平衡二叉树失去平衡，可以通过旋转操作重新达到平衡。分为左旋，右旋，左右旋，右左旋。
 	
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarysorttree/image/avl.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarysorttree/image/avl.png)
 	
 ## 平衡二叉树性能
 	查找：查找效率非常好，比较稳定，O(logN)数量级

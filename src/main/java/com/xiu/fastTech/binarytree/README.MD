@@ -2,7 +2,7 @@
 
 ## 树的相关知识点
 
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binanrytree/image/binarytreepoint.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarytree/image/binarytreepoint.png)
 
 
 ## 树
@@ -30,7 +30,7 @@
 ## 二叉树
 	二叉树：最多由2颗子树的树成为二叉树
 ## 二叉树的基本形态
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binanrytree/image/binanrytree.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarytree/image/binarytree.jpg)
 
 ## 二叉树的性质
 
@@ -52,15 +52,15 @@
 ## 完全二叉树
 	定义：一棵二叉树中，只有最下面2层节点的度可以小于2，并且最下一层的叶子节点集中靠左的位置，成为完全二叉树
 	特点：叶子节点只能出现在最下面和次下层，且最下面叶子节点集中在树的左部。满二叉树必定是一颗完全二叉树，而完全二叉树不一定是满二叉树。
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binanrytree/image/completebinarytree.jpg)	
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarytree/image/fullbinarytree.jpg)	
 	
 ## 二叉堆
 	定义：二叉堆是一种完全二叉树，分为，最大堆和最小堆
 	最大堆:任何一个父节点的值都大于等于它左右孩子节点的值
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binanrytree/image/maxheap.jpg)	
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarytree/image/maxheap.jpg)	
 	
 	最小堆:任何一个父节点的值都小于等于它左右孩子节点的值
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binanrytree/image/minheap.jpg)	
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarytree/image/minheap.jpg)	
 	堆顶：二叉堆的根节点
 	最大堆的堆顶是整个堆最大值，最小堆堆顶是整个堆最小值
 	

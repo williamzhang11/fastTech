@@ -44,7 +44,7 @@
 	3.B+树的非叶子节点只进行数据的索引，不会存实际的关键字记录指针，所有的数据地址必须到叶子节点才能获取到，所以每次查询的次数是一样的。
 	4.B+树的高度一般为3
 	
-	![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/btree/image/bplustree.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/btree/image/bplustree.jpg)
 	
 ## B+树的性能
 	1.查找
