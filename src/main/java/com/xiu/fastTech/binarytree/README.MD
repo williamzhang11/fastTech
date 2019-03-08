@@ -51,7 +51,8 @@
 
 ## 完全二叉树
 	定义：一棵二叉树中，只有最下面2层节点的度可以小于2，并且最下一层的叶子节点集中靠左的位置，成为完全二叉树
-	特点：叶子节点只能出现在最下面和次下层，且最下面叶子节点集中在树的左部。满二叉树必定是一颗完全二叉树，而完全二叉树不一定是满二叉树。
+	特点：叶子节点只能出现在最下面和次下层，且最下面叶子节点集中在树的左部。满二叉树必定是一颗完全二叉树，
+	而完全二叉树不一定是满二叉树。
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarytree/image/fullbinarytree.jpg)	
 	
 ## 二叉堆
@@ -60,7 +61,9 @@
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarytree/image/maxheap.jpg)	
 	
 	最小堆:任何一个父节点的值都小于等于它左右孩子节点的值
+	
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/binarytree/image/minheap.jpg)	
+
 	堆顶：二叉堆的根节点
 	最大堆的堆顶是整个堆最大值，最小堆堆顶是整个堆最小值
 	
