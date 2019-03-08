@@ -2,12 +2,15 @@
 本项目为maven项目，直接使用maven方式导入即可。
 
 目前已整理的技术以及对应的包名如下：
-- java反射机制 					--》				reflect
-- HashMap底层实现原理				--》				hashmap
-- LinkedHashMap底层实现原理   	 	--》 				linkedhashmap
-- ConcurrentHashMap底层实现原理  	--》 				concurrenthashmap
-- ArrayList底层原理实现     			--》 				arraylist
-- LinkedList底层原理实现 			--》 				linkedlist
+- java反射机制 						--》				com.xiu.fastTech.reflect
+- HashMap底层实现原理					--》				com.xiu.fastTech.hashmap
+- LinkedHashMap底层实现原理   	 		--》 				com.xiu.fastTech.linkedhashmap
+- ConcurrentHashMap底层实现原理  		--》 				com.xiu.fastTech.concurrenthashmap
+- ArrayList底层原理实现     				--》 				com.xiu.fastTech.arraylist
+- LinkedList底层原理实现 				--》 				com.xiu.fastTech.linkedlist
+- 二叉树，满二叉树，完全二叉树，二叉堆的知识点	--》				com.xiu.fastTech.binarytree
+- 二叉排序树，平衡二叉树，红黑树的知识点    	--》				com.xiu.fastTech.binarysorttree			
+- B树，B+树的知识点						--》				com.xiu.fastTech.btree	
 
 
 计划中
