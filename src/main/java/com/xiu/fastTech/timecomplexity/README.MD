@@ -7,10 +7,10 @@
 
 大O加上（）的形式，里面其实包裹的是一个函数f(),O（f()）,指明某个算法的耗时/耗空间与数据增长量之间的关系。其中的n代表输入数据的量。
 
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/timecomplexity/image/timecomplexity1.png)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/timecomplexity/image/timecomplex1.png)
 
 如果ax=N（a>0，且a≠1），那么数x叫做以a为底N的对数，记作x=logaN，读作以a为底N的对数，其中a叫做对数的底数，N叫做真数。
 
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/timecomplexity/image/timecomplexity2.png)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/timecomplexity/image/timecomplex2.png)
 
 参考：https://blog.csdn.net/ted_cs/article/details/82881831
