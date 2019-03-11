@@ -11,7 +11,7 @@
 - 二叉树，满二叉树，完全二叉树，二叉堆的知识点	--》				com.xiu.fastTech.binarytree
 - 二叉排序树，平衡二叉树，红黑树的知识点    	--》				com.xiu.fastTech.binarysorttree			
 - B树，B+树的知识点						--》				com.xiu.fastTech.btree	
-- O(1), O(n), O(logn), O(nlogn) 的区别-》				
+- O(1), O(n), O(logn), O(nlogn) 的区别-》				com.xiu.fastTech.timecomplexity			
 
 
 计划中
