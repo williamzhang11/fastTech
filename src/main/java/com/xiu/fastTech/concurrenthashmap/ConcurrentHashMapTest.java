@@ -1,10 +1,16 @@
 package com.xiu.fastTech.concurrenthashmap;
 
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConcurrentHashMapTest {
     public static void main(String[] args) {
-    Map<String,Object> map = new ConcurrentHashMap<String,Object>();
+    ConcurrentHashMap<String, Boolean> driverContentPourThreadMap = new ConcurrentHashMap<String, Boolean>();
+    
+    //System.out.println(driverContentPourThreadMap.containsKey("111"));
+    
+    driverContentPourThreadMap.remove("111");
+    
+    
+    
     }
 }

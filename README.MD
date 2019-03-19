@@ -12,7 +12,10 @@
 - 二叉排序树，平衡二叉树，红黑树的知识点    	--》				com.xiu.fastTech.binarysorttree			
 - B树，B+树的知识点						--》				com.xiu.fastTech.btree	
 - O(1), O(n), O(logn), O(nlogn) 的区别-》				com.xiu.fastTech.timecomplexity	
-- treeMap底层实现原理					--》				com.xiu.fastTech.treemap																
+- treeMap底层实现原理					--》				com.xiu.fastTech.treemap
+- 创建线程的4种方式						--》				com.xiu.fastTech.createthread
+- 线程捕获异常的2种处理方式				--》				com.xiu.fastTech.uncaughtthreadexception
+- 线程间通信的几种方式					--》				com.xiu.fastTech.threadsynchronized												
 
 
 计划中
