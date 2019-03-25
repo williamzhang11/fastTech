@@ -25,9 +25,14 @@
 	wait,notify方法必须在synchronized块或方法中被调用，并要保证同步块或方法的锁对象与调用wait/notify方法的对象是同一个，如此一来在调用wait
 之前现场就已经成功获取某个对象的锁，在执行wait阻塞后，当前线程将之前获取对象的锁释放。
 
+
+与sleep的区别
+sleep并不会放弃对象锁，而是暂时让当前线程放弃cpu,到了设定时间后，让线程重新回到就绪队列，而非阻塞队列。让其他线程有机会得到执行
+调用wait后，当前线程会放弃对象锁，进入等待状态，加入等待队列。获取通知后，进入阻塞对列，竞争获取锁。
+
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/threadsynchronized/image/threadflow.jpg)
 
-1.当线程A（消费者）调用wait()方法后，线程A让出锁，自己进入等待状态，同时加入锁对象的等待队列。
+1.当线程A（消费者）调用wait()方法后，线程A让出对象锁，自己进入等待状态，同时加入锁对象的等待队列。
 2.线程B（生产者）获取锁后，调用notify方法通知锁对象的等待队列，使得线程A从等待队列进入阻塞队列。
 3.线程A进入阻塞队列后，直至线程B释放锁后，线程A竞争得到锁继续从wait()方法后执行。
 

@@ -15,7 +15,7 @@
      2.修改，查询效率低，时间复杂度O(n)
      3.非线程安全的
      
-     ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/linkedlist/image/LinkedList.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/linkedlist/image/LinkedList.jpg)
 
 成员变量
 

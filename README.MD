@@ -18,16 +18,16 @@
 | treeMap底层实现原理					|				com.xiu.fastTech.treemap |
 | 创建线程的4种方式						|				com.xiu.fastTech.createthread |
 | 线程捕获异常的2种处理方式				|				com.xiu.fastTech.uncaughtthreadexception |
-| 线程间通信的几种方式					|				com.xiu.fastTech.threadsynchronized |												
+| 线程间通信的几种方式					|				com.xiu.fastTech.threadsynchronized |
+| 哈希冲突的3种常用解决方式				|				com.xiu.fastTech.hashcollision|			
+| ThreadLocal底层原理					|				com.xiu.fastTech.threadlocalandinheritablethreadlocal|			
 
 
 ## 计划中
-- ThreadLocal
+
 - synchronized实现原理 http://www.iocoder.cn/JUC/sike/synchronized/?vip
 - volatile
 - Thread Dump工具
 - 限流工具
-- 线程的创建方式，以及捕获UncaughtExceptionHandler 异常
 - 常见的多线程模式
-- Wait/notify	
 - 线程间协作的方式

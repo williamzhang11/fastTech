@@ -4,7 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 
 /*
+ * https://www.jianshu.com/p/91d95bb5a4bd
  * wait/notify通知机制
+ * 循环防止假唤醒，flag防止通知丢失
  * 
  */
 public class WaitNotifyTest {
@@ -13,6 +15,21 @@ public class WaitNotifyTest {
 	protected static Boolean flag = false;
 	public static void main(String[] args) {
 		
+		//生产者先启动
+		/*Thread product = new Thread(new Product());
+		product.start();
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Thread  consumer =new Thread(new Consumer());
+		consumer.start();*/
+		
+		
+		//消费者先启动
 		Thread  consumer =new Thread(new Consumer());
 		consumer.start();
 		try {
@@ -23,6 +40,8 @@ public class WaitNotifyTest {
 		}
 		Thread product = new Thread(new Product());
 		product.start();
+		
+		
 		
 		
 		
