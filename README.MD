@@ -20,12 +20,13 @@
 | 线程捕获异常的2种处理方式				|				com.xiu.fastTech.uncaughtthreadexception |
 | 线程间通信的几种方式					|				com.xiu.fastTech.threadsynchronized |
 | 哈希冲突的3种常用解决方式				|				com.xiu.fastTech.hashcollision|			
-| ThreadLocal底层原理					|				com.xiu.fastTech.threadlocalandinheritablethreadlocal|			
+| ThreadLocal与inheritablethreadlocal底层原理|				com.xiu.fastTech.threadlocalandinheritablethreadlocal|	
+| synchronized与Monitor（监视器）实现原理                                        |		 		com.xiu.fastTech.synchronize|
+|
 
 
 ## 计划中
 
-- synchronized实现原理 http://www.iocoder.cn/JUC/sike/synchronized/?vip
 - volatile
 - Thread Dump工具
 - 限流工具

@@ -16,7 +16,7 @@ public class SynchronizedTest {
 	}
 	
 	/**
-	 * 方法执行的JVM命令
+	 * javap命令查看方法执行的JVM命令
 	 * $ javap -c SynchronizedTest.class
 	Compiled from "SynchronizedTest.java"
 	public class com.xiu.fastTech.synchronize.SynchronizedTest {

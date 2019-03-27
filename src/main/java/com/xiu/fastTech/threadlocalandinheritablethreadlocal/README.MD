@@ -1,4 +1,4 @@
-# ThreadLocal
+# ThreadLocal与InheritableThreadLocals底层原理
 
 ThreadLocal 最主要的特点就是，它不是为了解决多线程间同步问题而存在的（即多线程间共享变量），而是可以为每个线程创建属于自己的线程内的局部变量
 ThreadLocal 通常被设置为private static字段，多个线程间的存储的数据副本都是相互独立的，不会相互影响。
