@@ -11,13 +11,27 @@ public class InheritableThreadLocalTest {
 	};
 	
 	
-	public static void main(String[] args) {
-		InheritableThreadLocal<Integer>inheritableThreadLocal = new InheritableThreadLocal<Integer>();
-		
+	public static void main(String[] args) throws InterruptedException {
+		InheritableThreadLocalTest in = new InheritableThreadLocalTest();
+		inheritableThreadLocal.set(100);
+		new ThreadTest(in).start();
+		System.out.println("parent" + inheritableThreadLocal.get());
+		InheritableThreadLocalTest.inheritableThreadLocal.set(InheritableThreadLocalTest.inheritableThreadLocal.get()+1);
+		System.out.println("parent" + inheritableThreadLocal.get());
 		
 	}
 	
-	public static class ss {
+	public static class ThreadTest extends Thread {
 		
+		InheritableThreadLocalTest inheritableThreadLocalTest;
+		public ThreadTest(InheritableThreadLocalTest inheritableThreadLocalTest) {
+			
+			this.inheritableThreadLocalTest = inheritableThreadLocalTest;
+		}
+		public void run() {
+			InheritableThreadLocalTest.inheritableThreadLocal.set(InheritableThreadLocalTest.inheritableThreadLocal.get()+1);
+			System.out.println("childThread"+InheritableThreadLocalTest.inheritableThreadLocal.get());
+			
+		}
 	}
 }

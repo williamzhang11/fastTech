@@ -147,6 +147,178 @@ ThreadLocal的关键是ThreadLocalMap，它底层实现是哈希表，解决冲�
 
 	解决方法：ThreadLocalMap中的set与get相关方法,在遇到key==null时，会置value=null.另外也可以显示调用Thread的remove方法。
 
+# InheritableThreadLocal
+	InheritableThreadLocal 可以在父线程创建子线程时将local中的值传递给子线程，但InheritableThreadLocal只会在创建线程的时候进行传值。
+	但对于线程池的情况，线程由线程池创建好了，并缓存起来反复使用。因此会出现问题。
+
+InheritableThreadLocal继承了ThreadLocal类，并重写了部分方法。
+
+```
+public class InheritableThreadLocal<T> extends ThreadLocal<T> {
+    protected T childValue(T parentValue) {
+        return parentValue;
+    }
+
+    ThreadLocalMap getMap(Thread t) {
+       return t.inheritableThreadLocals;
+    }
+
+    void createMap(Thread t, T firstValue) {
+        t.inheritableThreadLocals = new ThreadLocalMap(this, firstValue);
+    }
+}
+
+```
+get方法是使用的父类ThreadLocal中的get方法,其中调用getMap方法时，使用的是重写的getMap方法,返回的是Thread.inheritableThreadLocals变量。
+```
+    public T get() {
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = getMap(t);
+        if (map != null) {
+            ThreadLocalMap.Entry e = map.getEntry(this);
+            if (e != null) {
+                @SuppressWarnings("unchecked")
+                T result = (T)e.value;
+                return result;
+            }
+        }
+        return setInitialValue();
+    }
+
+```
+线程初始化时会将父线程中的值inheritableThreadLocals，拷贝到子线程中
+
+```
+    public Thread() {
+        init(null, null, "Thread-" + nextThreadNum(), 0);
+    }
+    
+    private void init(ThreadGroup g, Runnable target, String name,
+                      long stackSize) {
+        init(g, target, name, stackSize, null);
+    }
+    private void init(ThreadGroup g, Runnable target, String name,
+                      long stackSize, AccessControlContext acc) {
+        if (name == null) {
+            throw new NullPointerException("name cannot be null");
+        }
+
+        this.name = name;
+
+        Thread parent = currentThread();
+        SecurityManager security = System.getSecurityManager();
+        if (g == null) {
+
+            if (security != null) {
+                g = security.getThreadGroup();
+            }
+
+            if (g == null) {
+                g = parent.getThreadGroup();
+            }
+        }
+
+        g.checkAccess();
+
+        if (security != null) {
+            if (isCCLOverridden(getClass())) {
+                security.checkPermission(SUBCLASS_IMPLEMENTATION_PERMISSION);
+            }
+        }
+
+        g.addUnstarted();
+
+        this.group = g;
+        this.daemon = parent.isDaemon();
+        this.priority = parent.getPriority();
+        if (security == null || isCCLOverridden(parent.getClass()))
+            this.contextClassLoader = parent.getContextClassLoader();
+        else
+            this.contextClassLoader = parent.contextClassLoader;
+        this.inheritedAccessControlContext =
+                acc != null ? acc : AccessController.getContext();
+        this.target = target;
+        setPriority(priority);
+        
+        //若inheritableThreadLocals不为空则拷贝到子线程
+        if (parent.inheritableThreadLocals != null)
+            this.inheritableThreadLocals =
+                ThreadLocal.createInheritedMap(parent.inheritableThreadLocals);
+        this.stackSize = stackSize;
+
+        tid = nextThreadID();
+    }
+    
+    static ThreadLocalMap createInheritedMap(ThreadLocalMap parentMap) {
+        return new ThreadLocalMap(parentMap);
+    }
+    
+            private ThreadLocalMap(ThreadLocalMap parentMap) {
+            Entry[] parentTable = parentMap.table;
+            int len = parentTable.length;
+            setThreshold(len);
+            table = new Entry[len];
+
+            for (int j = 0; j < len; j++) {
+                Entry e = parentTable[j];
+                if (e != null) {
+                    @SuppressWarnings("unchecked")
+                    ThreadLocal<Object> key = (ThreadLocal<Object>) e.get();
+                    if (key != null) {
+                        Object value = key.childValue(e.value);
+                        Entry c = new Entry(key, value);
+                        int h = key.threadLocalHashCode & (len - 1);
+                        while (table[h] != null)
+                            h = nextIndex(h, len);
+                        table[h] = c;
+                        size++;
+                    }
+                }
+            }
+        }
+    
+    
+```
+而inheritableThreadLocals的初始化，是在父类set时进行的,其中createMap会调用重写的方法
+```
+    public void set(T value) {
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = getMap(t);
+        if (map != null)
+            map.set(this, value);
+        else
+            createMap(t, value);
+    }
+
+
+	//重写方法
+    void createMap(Thread t, T firstValue) {
+        t.inheritableThreadLocals = new ThreadLocalMap(this, firstValue);
+    }
+
+```
+
+
+## 线程池中使用InheritableThreadLocals
+可以使用阿里开源的transmittable-thread-local
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
