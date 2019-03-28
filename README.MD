@@ -20,9 +20,9 @@
 | 线程捕获异常的2种处理方式				|				com.xiu.fastTech.uncaughtthreadexception |
 | 线程间通信的几种方式					|				com.xiu.fastTech.threadsynchronized |
 | 哈希冲突的3种常用解决方式				|				com.xiu.fastTech.hashcollision|			
-| ThreadLocal与inheritablethreadlocal底层原理|				com.xiu.fastTech.threadlocalandinheritablethreadlocal|	
-| synchronized与Monitor（监视器）实现原理                                        |		 		com.xiu.fastTech.synchronize|
-|
+| ThreadLocal与inheritablethreadlocal底层原理|			com.xiu.fastTech.threadlocalandinheritablethreadlocal|	
+| synchronized实现原理与 Monitor Object机制 |		 	com.xiu.fastTech.synchronize|
+| synchronized重量锁的优化					|			com.xiu.fastTech.synchronizedoptimize|
 
 
 ## 计划中
