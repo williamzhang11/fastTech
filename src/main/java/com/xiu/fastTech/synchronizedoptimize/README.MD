@@ -8,12 +8,12 @@
 ## 对象头
 	java对象是创建在堆上的，指向堆的引用放在栈上，堆上的对象结构如下：
 	
-(https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/object.jpg)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/object.jpg)
 
 	其中对象头结构如下:
-(https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/objecthead.jpg)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/objecthead.jpg)
  	Mark Word会随着程序的运行发生变化，状态如下：
-(https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/markword.jpg)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/markword.jpg)
 
 	其中无锁状态：对象HashCode+对象分代年龄+状态位01 是否偏向锁 0
 	当一个对象获取锁后，标志位会发生变化
@@ -31,7 +31,7 @@
 	6.Candidate：用来避免不必要的阻塞或等待线程唤醒。因为每一次只有一个线程能够成功拥有锁，如果每次前一个释放锁的线程唤醒所有正在阻塞或等待的线程，
 	会引起不必要的上下文	切	换（从阻塞到就绪然后因为竞争锁失败又被阻塞）从而导致性能严重下降。Candidate 只有两种可能的值 ：1）0 表示没有需要唤
 	醒的线程；2）1 表示要唤醒	一个继任线程来竞争锁。
-(https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/monitorrecord.jpg)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/monitorrecord.jpg)
 
 	如果某个线程获取监视器锁成功，成为该监视锁对象的拥有者，在任意时刻监视器对象只属于一个活动线程(owner)
 	拥有者可调用wait方法释放监视器锁，进入等待状态。
@@ -95,7 +95,7 @@
 	解锁：
 	轻量级锁解锁时，同样通过CAS操作将对象头换回来，如果成功，表示没有竞争。失败的话，说明有其他线程尝试获取该锁，锁
 	膨胀为重量级锁。释放锁时，唤醒被挂起的线程。
-(https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/qingliangjisuo.jpg)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/qingliangjisuo.jpg)
 	
 	轻量级锁的依据是：绝大部分的锁，在整个生命周期中不会存在竞争。如果打破这个依据，除了互斥的开销外，还有额外CAS操作。因此多线程
 	竞争的情况下，轻量级锁比重量级锁更慢。
@@ -114,12 +114,12 @@
 	2.如果线程是活动状态，拥有偏向锁的线程栈被执行，遍历偏向对象的锁记录，对栈中的锁记录和对象头的MarkWord进行重置。
 	要么重新偏向其他线程，即将偏向锁交给其他线程，相当于释放锁。要么恢复到无锁或升级为轻量锁。
 	3.最后唤醒暂停的线程。被阻塞在安全点的线程继续执行同步代码块。
-(https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/pianxiangsuo.jpg)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/pianxiangsuo.jpg)
 
 ### 三种锁的对比
-(https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/duibi.jpg)	
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/duibi.jpg)	
 ### 三种锁的转换
-(https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/zhuanhuan.jpg)
+![image](https://github.com/williamzhang11/fastTech/tree/master/src/main/java/com/xiu/fastTech/synchronizedoptimize/image/zhuanhuan.jpg)
 
 
 
