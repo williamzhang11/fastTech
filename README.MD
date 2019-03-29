@@ -1,4 +1,4 @@
- 本项目主要是整理 java中常用的有趣的奇淫技巧。 目录结构为：com.xiu.fastTech下的每个包中都有一种技巧， 以及详细的解释。
+ 本项目主要是整理 java后台开发中常用的重要技术。 目录结构为：com.xiu.fastTech下的每个包中都有一种技术点， 以及详细的解释。
  
  本项目为maven项目，直接使用maven方式导入即可。
 
@@ -22,7 +22,8 @@
 | 哈希冲突的3种常用解决方式				|				com.xiu.fastTech.hashcollision|			
 | ThreadLocal与inheritablethreadlocal底层原理|			com.xiu.fastTech.threadlocalandinheritablethreadlocal|	
 | synchronized实现原理与 Monitor Object机制 |		 	com.xiu.fastTech.synchronize|
-| synchronized重量锁的优化					|			com.xiu.fastTech.synchronizedoptimize|
+| synchronized重量锁的优化				|				com.xiu.fastTech.synchronizedoptimize|
+| java内存结构与内存模型					|				com.xiu.fastTech.memorymodel|
 
 
 ## 计划中
