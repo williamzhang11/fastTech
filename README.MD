@@ -23,7 +23,8 @@
 | ThreadLocal与inheritablethreadlocal底层原理|			com.xiu.fastTech.threadlocalandinheritablethreadlocal|	
 | synchronized实现原理与 Monitor Object机制 |		 	com.xiu.fastTech.synchronize|
 | synchronized重量锁的优化				|				com.xiu.fastTech.synchronizedoptimize|
-| java内存结构与内存模型					|				com.xiu.fastTech.memorymodel|
+| java内存结构与内存模型(JMM)			|				com.xiu.fastTech.memorymodel|
+| volatile底层原理               	    		|				com.xiu.fastTech.volatiletest|
 
 
 ## 计划中
