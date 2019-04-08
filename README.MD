@@ -25,6 +25,7 @@
 | synchronized重量锁的优化				|				com.xiu.fastTech.synchronizedoptimize|
 | java内存结构与内存模型(JMM)			|				com.xiu.fastTech.memorymodel|
 | volatile底层原理               	    		|				com.xiu.fastTech.volatiletest|
+| java 队列同步器（AQS）底层原理			|				com.xiu.fastTech.aqs|
 
 
 ## 计划中
