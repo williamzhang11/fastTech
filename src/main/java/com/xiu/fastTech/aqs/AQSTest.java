@@ -8,6 +8,8 @@ public class AQSTest {
 	public static void main(String[] args) {
 		
 		ReentrantLock lock = new ReentrantLock();
+		
+		lock.newCondition();
 		new Thread(new ThreadTest(lock)).start();
 		//new Thread(new ThreadTest(lock)).start();
 		

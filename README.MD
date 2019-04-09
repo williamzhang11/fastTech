@@ -26,6 +26,7 @@
 | java内存结构与内存模型(JMM)			|				com.xiu.fastTech.memorymodel|
 | volatile底层原理               	    		|				com.xiu.fastTech.volatiletest|
 | java 队列同步器（AQS）底层原理			|				com.xiu.fastTech.aqs|
+| ReentrantLock底层原理				|				com.xiu.fastTech.reentrantlock|
 
 
 ## 计划中
