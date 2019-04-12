@@ -27,6 +27,7 @@
 | volatile底层原理               	    		|				com.xiu.fastTech.volatiletest|
 | java 队列同步器（AQS）底层原理			|				com.xiu.fastTech.aqs|
 | ReentrantLock底层原理				|				com.xiu.fastTech.reentrantlock|
+| ReentrantReadWriteLock底层原理		|				com.xiu.fastTech.reentrantreadwritelock|
 
 
 ## 计划中
