@@ -30,6 +30,9 @@
 | ReentrantReadWriteLock底层原理		|				com.xiu.fastTech.reentrantreadwritelock|
 | Lock的Condition同步机制底层原理		|				com.xiu.fastTech.condition|
 | CopyOnWriteArrayList容器底层原理		|				com.xiu.fastTech.copyonwritearraylist|
+| ArrayBlockingQueue容器底层原理		|				com.xiu.fastTech.arrayblockingqueue|
+| PriorityBlockingQueue容器底层原理	|				com.xiu.fastTech.priorityblockingqueue|
+| LinkedBlockingQueue容器底层原理		|				com.xiu.fastTech.linkedblockingqueue|
 
 
 ## 计划中
