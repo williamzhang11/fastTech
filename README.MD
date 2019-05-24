@@ -33,6 +33,13 @@
 | ArrayBlockingQueue容器底层原理		|				com.xiu.fastTech.arrayblockingqueue|
 | PriorityBlockingQueue容器底层原理	|				com.xiu.fastTech.priorityblockingqueue|
 | LinkedBlockingQueue容器底层原理		|				com.xiu.fastTech.linkedblockingqueue|
+| SynchronousQueue容器底层原理			|				com.xiu.fastTech.synchronousqueue|
+| LinkedTransferQueue容器底层原理		|				com.xiu.fastTech.linkedtransferqueue|
+| LinkedBlockingQueue和ConcurrentLinkedQueue的区别		|				com.xiu.fastTech.linkedblockingqueueandconcurrentlinkedqueue|
+| CAS底层原理							|				com.xiu.fastTech.cas|
+| 信号量（Semaphore）底层原理			|				com.xiu.fastTech.semaphore|
+| CountDownLatch底层原理			|				com.xiu.fastTech.countdownlatch|
+| CyclicBarrier底层原理			|				com.xiu.fastTech.cyclicbarrier|
 
 
 ## 计划中

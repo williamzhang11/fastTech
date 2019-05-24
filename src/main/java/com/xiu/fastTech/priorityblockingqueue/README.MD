@@ -96,7 +96,7 @@
 
 ```
 
-PriorityBlockingQueue采用二叉堆维护，整个过程不是很复杂，添加操作不断上冒，删除操作不断下掉。
+PriorityBlockingQueue采用二叉堆维护，添加操作不断上冒，删除操作不断下掉。
 
 
 

@@ -19,7 +19,7 @@ public class ThreadTest {
 		
 		Thread thread = new Thread(runnable);
 		
-		thread.setDaemon(false);
+		thread.setDaemon(true);
 		thread.start();
 		System.out.println("end");
 		
