@@ -11,7 +11,9 @@ public class ThreadPoolTest {
 		
 		//Runnable thread = new UserThread();
 		Thread thread = new UserThread2();
+		thread.start();
 		//thread.setName("2222");
 		new ThreadPoolTest().executor.execute(thread);
+		
 	}
 }

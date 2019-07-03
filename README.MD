@@ -40,12 +40,5 @@
 | 信号量（Semaphore）底层原理			|				com.xiu.fastTech.semaphore|
 | CountDownLatch底层原理			|				com.xiu.fastTech.countdownlatch|
 | CyclicBarrier底层原理			|				com.xiu.fastTech.cyclicbarrier|
-
-
-## 计划中
-
-- volatile
-- Thread Dump工具
-- 限流工具
-- 常见的多线程模式
-- 线程间协作的方式
+| Executor体系与Future体系			|				com.xiu.fastTech.executorfuture|
+| 线程池介绍			|				com.xiu.fastTech.threadpool|
