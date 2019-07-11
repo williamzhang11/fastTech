@@ -38,7 +38,9 @@
 | LinkedBlockingQueue和ConcurrentLinkedQueue的区别		|				com.xiu.fastTech.linkedblockingqueueandconcurrentlinkedqueue|
 | CAS底层原理							|				com.xiu.fastTech.cas|
 | 信号量（Semaphore）底层原理			|				com.xiu.fastTech.semaphore|
-| CountDownLatch底层原理			|				com.xiu.fastTech.countdownlatch|
-| CyclicBarrier底层原理			|				com.xiu.fastTech.cyclicbarrier|
-| Executor体系与Future体系			|				com.xiu.fastTech.executorfuture|
-| 线程池介绍			|				com.xiu.fastTech.threadpool|
+| CountDownLatch底层原理				|				com.xiu.fastTech.countdownlatch|
+| CyclicBarrier底层原理				|				com.xiu.fastTech.cyclicbarrier|
+| Executor体系与Future体系				|				com.xiu.fastTech.executorfuture|
+| 线程池介绍							|				com.xiu.fastTech.threadpool|
+| JVM介绍							|				com.xiu.fastTech.jvm|
+
