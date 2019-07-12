@@ -34,6 +34,7 @@
 	2.类及方法的信息等比较难确定其大小，因此对永久代的大小指定比较困难。太小容易出现永久代溢出，太大容易导致老年代溢出
 	3.永久代会为GC带来不必要的复杂度，回收效率偏低
 ## 堆内存
+
 	堆内存=新生代+老年代
 	新生代分为3个区域，一个Eden区和2个Survivor区，它们之间的默认比例为（8：1：1），可修改。
 	对象创建时主要分配在新生代的Eden区，少数情况下可直接分配在老年代（新生代空间不够时）。
@@ -42,8 +43,11 @@
 	此时在Survivor空间存活下来的对象的年龄设置为1，以后这些对象每在Survivor区熬过一次GC,它们的年龄加1
 	，当对象达到某个年龄（默认15）时，把它们移到老年代。
    	新生代区与老年代比例为1：2
+   	
 ## 堆内存垃圾回收方式
+
 	java堆是GC垃圾回收的主要区域，采用分代垃圾回收方式，GC分为2种：MinorGC，FullGC
+	
 ### Minor GC（新生代垃圾回收方式）
 	触发Minor GC(新生代GC)的情况：
 		1.Eden区域满了
@@ -58,7 +62,48 @@
 				转为使用CMS GC
 		4.Minor GC时，survivor放不下，对象只能放入老年代，而老年代也放不下
 			策略：增加survivor space，老年代空间
-		5.
+			
+### 垃圾回收时的Stop The World
+
+	java中Stop The World机制简称STW，是在执行垃圾收集算法时，java应用程序中其他所有线程都被挂起（除了垃圾收集帮助器之外）。它是java中
+	一种全局暂停现象，全局停顿，所有java代码停止，native代码可以执行，但不能与JVM交互。不管是新生代gc还是full gc都会全局暂停执行
+	STW总会发生不管是新生代还是老年代 就算是CMS也有STW的时候重点是 时间长短,新生代gc暂停非常短，full gc时间较长，因此要避免频繁full gc。
+	
+### HotSpot虚拟机所有的垃圾收集器：
+
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/garbagecollect.jpg)
+
+	上面共7中收集器，上面为新生代收集器，下面是老年代收集器。如果2个收集器之间存在连线，说明它们可以搭配使用。
+	新生代收集器使用复制算法
+	老年代使用并发标记清除（CMS）或标记-整理算法
+	
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/garbagecollectdetail.jpg)
+	并行（Parallel）:多条垃圾收集线程并行工作，而用户线程仍处于等待状态
+	并发（Concurrent）:垃圾收集线程与用户线程一段时间内同时工作（交替执行）
+#### Serial(串行GC)收集器
+	Serial收集器是一个新生代收集器，单线程执行，使用复制算法。它在进行垃圾收集时必须暂停其他所有的工作线程（用户线程）。对于单个CPU的环境来说，Serial收集器
+	由于没有线程交互的开销，专心做垃圾收集自然可以获得最高的单线程收集效率。
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/serialgc.jpg)
+#### ParNew(并行gc)收集器
+	ParNew收集器是serial收集器的多线程版本，除了使用多条线程进行垃圾收集之外，其余行为与Serial收集器一样
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/parnewgc.jpg)
+#### Parallel Scavenge（并行回收GC）收集器
+	Parallel Scavenge收集器是一个新生代收集器，使用复制算法收集器，并行多线程收集器。该收集器目标是达到一个可控制的吞吐量。吞吐量=程序运行时间/（程序运行时间+垃圾收集时间）
+	虚拟机总共运行100分钟，其中垃圾收集花掉1分钟，那么吞吐量是99%。
+#### Serial old（串行GC）收集器
+	Serial old是Serial收集器的老年代版本，它同样使用一个单线程执行收集，使用标记-整理算法。
+#### Parallel old（并行GC）收集器
+	Parallel Old是Parallel Scavenge收集器的老年代版本，使用多线程和标记整理算法
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/paralleloldgc.jpg)
+#### CMS（并发GC）收集器
+	CMS收集器是一种获取最短回收停顿时间为目标的收集器
+	优点：是并发收集，低停顿
+	缺点：1.对CPU资源非常敏感
+		2.无法处理浮动垃圾
+		3.基于标记-清除实现的收集器，使用后产生大量碎片。碎片太多时，会给对象分配带来很大麻烦，比如大对象，内存空间
+		找不到连续空间来分配不得不提前触发一次Full GC。
+
+	
 
 	
 
