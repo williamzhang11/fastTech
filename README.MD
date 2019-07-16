@@ -44,4 +44,5 @@
 | 线程池介绍							|				com.xiu.fastTech.threadpool|
 | JVM介绍							|				com.xiu.fastTech.jvm|
 | JVM垃圾回收算法						|				com.xiu.fastTech.jvmgc|
+| JVM分析						|				com.xiu.fastTech.jvmanalyze|
 
