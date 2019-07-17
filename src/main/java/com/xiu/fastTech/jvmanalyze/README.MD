@@ -84,10 +84,32 @@
 	FGCT: 从应用程序启动到当前，Full GC所用的时间
 	GCT: 从应用程序启动到当前，用于垃圾回收的总时间【单位秒】
 	
-	如果jvm一直
+	配置输出gc日志（配置位置catalina.sh）
+	CATALINA_OPTS=-XX:ParallelGCThreads=4 -XX:+PrintGCDetails  -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseConcMarkSweepGC 	-XX:MaxTenuringThreshold=15 -Xloggc:../logs/tomcat_gc.log
 	
+	-XX:+PrintGC 输出GC日志
+	-XX:+PrintGCDetails 输出GC的详细日志
+	-XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）
+	-XX:+PrintGCDateStamps 输出GC的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）
+	-XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息
+	-Xloggc:../logs/gc.log 日志文件的输出路径
+	使用GCViewer工具对gc日志进行可视化分析：
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvmanalyze/image/gc.JPG)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvmanalyze/image/gcpause.JPG)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvmanalyze/image/gcsummary.JPG)
+
+	发现24小时内触发的fullGC竟然高达25次，每次FullGC的平均时长近16s,YGC 1937次，这已经严重影响到线上代码的运行了。
+	解决方式：
+	第一步：
+		依据高内存占用解决方式，打印出堆内存中所有的大对象列表，找出是否存在内存泄露的情况，参照代码依次排查每个对象的嫌疑，发现
+	输出日志时是通过先输入到无界队列，然后消费者从无界队列中另一端去消费，消费者是kafka，由于网络原因，kakfa与broker连接超时
+	导致没有被消费，该无界队列中的对象越来越多。又存在强引用，所以fullGC也无法GC掉，导致老年代越来越大。fullGC清理掉的仅仅是
+	不被GC root关联的对象。通过把网络打通，缓解了fullGC发生的频率，但是还是出现的异常
+	第二步：
+		 发现新生代的大小为600M,老年代大小为19G，这样的比例是明显不合适的，一般推荐的比例为1：2.因为新生代太小，很容易触发YGC，当到达15次，依然存活的对象进入老年代
+	并且当新生代还没有被填满了时，如果有大对象进来，会直接放在老年代，当大量的大对象都进入老年代很容易触发fullgc，因为这些大对象本来应该在新生代被清理的。
 	
-	
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvmanalyze/image/jvmgc.png)	
 	
 	
 	

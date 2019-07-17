@@ -94,7 +94,9 @@
 	Serial old是Serial收集器的老年代版本，它同样使用一个单线程执行收集，使用标记-整理算法。
 #### Parallel old（并行GC）收集器
 	Parallel Old是Parallel Scavenge收集器的老年代版本，使用多线程和标记整理算法
+
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/paralleloldgc.jpg)
+
 #### CMS（并发GC）收集器
 	CMS收集器是一种获取最短回收停顿时间为目标的收集器
 	优点：是并发收集，低停顿
@@ -102,8 +104,10 @@
 		2.无法处理浮动垃圾
 		3.基于标记-清除实现的收集器，使用后产生大量碎片。碎片太多时，会给对象分配带来很大麻烦，比如大对象，内存空间
 		找不到连续空间来分配不得不提前触发一次Full GC。
+		
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvmanalyze/image/jvmgc.png)	
 
-	
+	优秀文章：https://www.cnblogs.com/aspirant/p/8662690.html
 
 	
 
