@@ -47,4 +47,5 @@
 | JVM常见的性能处理						|				com.xiu.fastTech.jvmanalyze|
 | 触发FullGC的情况						|				com.xiu.fastTech.fullgc|
 | CMS垃圾收集器与G1收集器				|				com.xiu.fastTech.cmsgcandg1|
+| 数据库三范式与反模式					|				com.xiu.fastTech.threenormalform|
 

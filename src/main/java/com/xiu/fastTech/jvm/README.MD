@@ -69,7 +69,7 @@
 	一种全局暂停现象，全局停顿，所有java代码停止，native代码可以执行，但不能与JVM交互。不管是新生代gc还是full gc都会全局暂停执行
 	STW总会发生不管是新生代还是老年代 就算是CMS也有STW的时候重点是 时间长短,新生代gc暂停非常短，full gc时间较长，因此要避免频繁full gc。
 	
-### HotSpot虚拟机所有的垃圾收集器：
+### java垃圾收集器历史：
 
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/garbagecollect.jpg)
 
@@ -80,24 +80,42 @@
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/garbagecollectdetail.jpg)
 	并行（Parallel）:多条垃圾收集线程并行工作，而用户线程仍处于等待状态
 	并发（Concurrent）:垃圾收集线程与用户线程一段时间内同时工作（交替执行）
-#### Serial(串行GC)收集器
+#### 第一阶段，串行收集器（Serial）
+	在jdk1.3.1之前，java虚拟机仅仅能使用Serial收集器。 Serial收集器是一个单线程的收集器，但它的“单线程”的意义并不仅仅是说明它只会使用一个CPU或一条收集线程去完成垃圾	收集工作，更重要的是在它进行垃圾收集时，必须暂停其他所有的工作线程，直到它收集结束。
+	开启Serial收集器的方式
+    -XX:+UseSerialGC
+##### Serial(串行GC)收集器
 	Serial收集器是一个新生代收集器，单线程执行，使用复制算法。它在进行垃圾收集时必须暂停其他所有的工作线程（用户线程）。对于单个CPU的环境来说，Serial收集器
 	由于没有线程交互的开销，专心做垃圾收集自然可以获得最高的单线程收集效率。
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/serialgc.jpg)
+#### 第二阶段：并行收集器（parallel）
+
+	Parallel收集器也称吞吐量收集器，相比Serial收集器，Parallel最主要的优势在于使用多线程去完成垃圾清理工作，这样可以充分利用多核的特性，大幅降低gc时间。
+	
+	PS:开启Parallel收集器的方式
+	
+	-XX:+UseParallelGC -XX:+UseParallelOldGC
+
 #### ParNew(并行gc)收集器
 	ParNew收集器是serial收集器的多线程版本，除了使用多条线程进行垃圾收集之外，其余行为与Serial收集器一样
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/parnewgc.jpg)
-#### Parallel Scavenge（并行回收GC）收集器
+##### Parallel Scavenge（并行回收GC）收集器
 	Parallel Scavenge收集器是一个新生代收集器，使用复制算法收集器，并行多线程收集器。该收集器目标是达到一个可控制的吞吐量。吞吐量=程序运行时间/（程序运行时间+垃圾收集时间）
 	虚拟机总共运行100分钟，其中垃圾收集花掉1分钟，那么吞吐量是99%。
-#### Serial old（串行GC）收集器
+##### Serial old（串行GC）收集器
 	Serial old是Serial收集器的老年代版本，它同样使用一个单线程执行收集，使用标记-整理算法。
-#### Parallel old（并行GC）收集器
+##### Parallel old（并行GC）收集器
 	Parallel Old是Parallel Scavenge收集器的老年代版本，使用多线程和标记整理算法
 
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/paralleloldgc.jpg)
 
-#### CMS（并发GC）收集器
+#### 第三阶段，CMS（并发）收集器
+	只有在初始标记阶段、重新标记阶段会暂停应用线程，其余阶段都是和应用程序同时工作的。
+	PS:开启CMS收集器的方式
+	
+	-XX:+UseParNewGC -XX:+UseConcMarkSweepGC
+
+##### CMS（并发GC）收集器
 	CMS收集器是一种获取最短回收停顿时间为目标的收集器
 	优点：是并发收集，低停顿
 	缺点：1.对CPU资源非常敏感
@@ -108,8 +126,18 @@
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvmanalyze/image/jvmgc.png)	
 
 	优秀文章：https://www.cnblogs.com/aspirant/p/8662690.html
+####第四阶段，G1（并发）收集器
 
+	G1收集器（或者垃圾优先收集器）的设计初衷是为了尽量缩短处理超大堆（大于4GB）时产生的停顿。相对于CMS的优势而言是内存碎片的产生率大大降低。
 	
+	PS:开启G1收集器的方式
+	
+	-XX:+UseG1GC
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvmanalyze/image/gca.jpg)	
+	
+	
+	
+	https://crowhawk.github.io/2017/08/15/jvm_3/
 
 
 
