@@ -104,7 +104,7 @@ mysql> show variables like 'innodb_page_size';
 ## 二级索引
 	也称为：辅助索引
 	唯一索引、普通索引、前缀索引等都是二级索引（辅助索引）
-	二级索引存储的是记录的主键，而不是数据存储的地址。
+	二级索引存储的是记录的主键以及索引列值，而不是数据存储的地址。
 	所谓回表就是在使用二级索引时，因为二级索引之存储了部分数据，如果根据键值查找到的数据不能包括全部目标数据，就需要二级索引指针，
 	也就是键值对中的值，来找到聚簇索引的所有数据，然后根据完整的数据取出所需要列的过程。 覆盖索引不需要回表
 ![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/dbindex/image/index.jpg)	
