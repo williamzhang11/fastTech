@@ -51,7 +51,24 @@
 | MyISAM和InnoDB的主要区别				|				com.xiu.fastTech.storageengine|
 | 数据库索引原理						|				com.xiu.fastTech.dbindex|
 | mysqlB+树与哈希索引的区别				|				com.xiu.fastTech.Bplushashindex|
-| 索引最左匹配原则						|				com.xiu.fastTech.|
+| 索引最左匹配原则						|				com.xiu.fastTech.leftmatch|
+| 数据库锁							|				com.xiu.fastTech.dblock|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
