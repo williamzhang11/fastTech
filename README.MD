@@ -22,7 +22,7 @@
 | [哈希冲突的3种常用解决方式](src/main/java/com/xiu/fastTech/hashcollision/README.MD)|			
 | [ThreadLocal与inheritablethreadlocal底层原理](src/main/java/com/xiu/fastTech/threadlocalandinheritablethreadlocal/README.MD)|	
 | [synchronized实现原理与 Monitor Object机制](src/main/java/com/xiu/fastTech/synchronize/README.MD)|
-| [synchronized重量锁的优化]src/main/java/com/xiu/fastTech/synchronizedoptimize/README.MD)|
+| [synchronized重量锁的优化](src/main/java/com/xiu/fastTech/synchronizedoptimize/README.MD)|
 | [java内存结构与内存模型(JMM)](src/main/java/com/xiu/fastTech/memorymodel/README.MD)|
 | [volatile底层原理](src/main/java/com/xiu/fastTech/volatiletest/README.MD)|
 | [java 队列同步器（AQS）底层原理](src/main/java/com/xiu/fastTech/aqs/README.MD)|
