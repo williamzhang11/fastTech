@@ -3,7 +3,7 @@
  本项目为maven项目，直接使用maven方式导入即可。
 
 ## 目前已整理的技术以及对应的包名如下：
-|技术|包路径|
+|技术|
 | :------ |
 | [java反射机制](src/main/java/com/xiu/fastTech/reflect/README.MD)|
 | [HashMap底层实现原理](src/main/java/com/xiu/fastTech/hashmap/README.MD)|
