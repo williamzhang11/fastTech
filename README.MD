@@ -5,7 +5,7 @@
 ## 目前已整理的技术以及对应的包名如下：
 |技术|
 | :------ |
-| [java反射机制](src/main/java/com/xiu/fastTech/reflect/README.MD)|
+| [java反射机制](src/main/java/com/xiu/fastTech/reflect)|
 | [HashMap底层实现原理](src/main/java/com/xiu/fastTech/hashmap/README.MD)|
 | [LinkedHashMap底层实现原理](src/main/java/com/xiu/fastTech/linkedhashmap/README.MD)|
 | [ConcurrentHashMap底层实现原理](src/main/java/com/xiu/fastTech/concurrenthashmap/README.MD)|
@@ -33,7 +33,7 @@
 | [ArrayBlockingQueue容器底层原理](src/main/java/com/xiu/fastTech/arrayblockingqueue/README.MD)|
 | [PriorityBlockingQueue容器底层原理](src/main/java/com/xiu/fastTech/priorityblockingqueue/README.MD)|
 | [LinkedBlockingQueue容器底层原理](src/main/java/com/xiu/fastTech/linkedblockingqueue/README.MD)|
-| [SynchronousQueue容器底层原理](src/main/java/com/xiu/fastTech/synchronousqueue/README.MD)|
+| [SynchronousQueue容器底层原理](src/main/java/com/xiu/fastTech/synchronousqueue)|
 | [LinkedTransferQueue容器底层原理](src/main/java/com/xiu/fastTech/linkedtransferqueue/README.MD)|
 | [LinkedBlockingQueue和ConcurrentLinkedQueue的区别](src/main/java/com/xiu/fastTech/linkedblockingqueueandconcurrentlinkedqueue/README.MD)|
 | [CAS底层原理](src/main/java/com/xiu/fastTech/cas/README.MD)|

@@ -11,7 +11,7 @@ public class GetClassObjectTest {
 		
 		//第一种方法，不会初始化，静态代码块
 		Class<User> userClass1 = User.class;
-		System.err.println(userClass1);
+		//System.err.println(userClass1);
 		
 		//第二种方法
 		Class<?> userClass2 = null;
@@ -21,13 +21,13 @@ public class GetClassObjectTest {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		System.out.println(userClass2);
+		//System.out.println(userClass2);
 		
 		//第三种方法
 		User user = new User();
 		Class<?> classUser3 = user.getClass();
 		
-		System.err.println(classUser3);
+		//System.err.println(classUser3);
 		
 	}
 }
