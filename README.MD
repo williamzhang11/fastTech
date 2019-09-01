@@ -37,7 +37,7 @@
 | [LinkedTransferQueue容器底层原理](src/main/java/com/xiu/fastTech/linkedtransferqueue/README.MD)|
 | [LinkedBlockingQueue和ConcurrentLinkedQueue的区别](src/main/java/com/xiu/fastTech/linkedblockingqueueandconcurrentlinkedqueue/README.MD)|
 | [CAS底层原理](src/main/java/com/xiu/fastTech/cas/README.MD)|
-| [信号量（Semaphore）底层原理](src/main/java/com/xiu/fastTech/semaphore/README.MD)|
+| [信号量（Semaphore）底层原理](src/main/java/com/xiu/fastTech/semaphore)|
 | [CountDownLatch底层原理](src/main/java/com/xiu/fastTech/countdownlatch/README.MD)|
 | [CyclicBarrier底层原理](src/main/java/com/xiu/fastTech/cyclicbarrier/README.MD)|
 | [Executor体系与Future体系](src/main/java/com/xiu/fastTech/executorfuture/README.MD)|
