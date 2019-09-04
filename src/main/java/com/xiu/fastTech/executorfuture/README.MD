@@ -2,7 +2,7 @@
 
 ## Executor体系
 
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/threadpool/image/threadpool.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/executorfuture/image/threadpool.jpg)
 
 	Executor 任务执行者接口，线程池几乎所有类都直接或间接实现Executor接口，它是线程池框架的基础。
 	ExecutorService继承Executor接口，它是执行者服务接口。
@@ -11,7 +11,7 @@
 	ScheduledThreadPoolExecutor继承ThreadPoolExecutor,实现ScheduledExecutorService接口
 	Executors静态工厂类提供Executor,ExecutorService,ScheduledExecutorService,ThreadFactory,Callable等类的静态工厂方法。
 ## Future体系
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/threadpool/image/future.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/executorfuture/image/future.jpg)
 	Future与FutureTask代表了线程池的异步计算结果
 	可以获取任务执行完成之后返回的结果
 	

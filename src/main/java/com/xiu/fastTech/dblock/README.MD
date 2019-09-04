@@ -1,6 +1,6 @@
 # 数据库锁
 
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/dblock/image/sqllock.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/dblock/image/sqllock.JPG)
 
 ## 数据库中隐式设置的锁
 	1.对于update,delete,insert语句，innodb自动给涉及数据集加排他锁（X）
@@ -25,7 +25,7 @@
 	表锁分为2种模式
 	表读锁（Table Read Lock）
 	表写锁（Table Write Lock）
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/dblock/image/tablelock.jpg)
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/dblock/image/tablelock.JPG)
 
 	上图可看到表读锁和表写锁环境下：读读不阻塞，读写阻塞，写写阻塞
 	

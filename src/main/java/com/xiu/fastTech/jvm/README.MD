@@ -133,7 +133,7 @@
 	PS:开启G1收集器的方式
 	
 	-XX:+UseG1GC
-![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvmanalyze/image/gca.jpg)	
+![image](https://github.com/williamzhang11/fastTech/blob/master/src/main/java/com/xiu/fastTech/jvm/image/gca.JPG)	
 	
 	
 	
