@@ -5,6 +5,7 @@
 ## 目前已整理的技术以及对应的包名如下：
 |技术|
 | :------ |
+| [类加载机制](src/main/java/com/xiu/fastTech/classload)|
 | [java反射机制](src/main/java/com/xiu/fastTech/reflect)|
 | [HashMap底层实现原理](src/main/java/com/xiu/fastTech/hashmap)|
 | [LinkedHashMap底层实现原理](src/main/java/com/xiu/fastTech/linkedhashmap)|
@@ -54,6 +55,7 @@
 | [索引最左匹配原则](src/main/java/com/xiu/fastTech/leftmatch)|
 | [数据库锁](src/main/java/com/xiu/fastTech/dblock)|
 | [乐观锁的2种实现](src/main/java/com/xiu/fastTech/optimisticlock)|
+| [MySQL事务日志undo log和redo log分析](src/main/java/com/xiu/fastTech/undoredobinlog)|
 
 
 
