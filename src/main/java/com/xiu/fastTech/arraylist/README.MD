@@ -172,7 +172,15 @@ public boolean remove(Object o),移除指定元素
 ArrayList在序列化时调用writeObject（）方法，反序列化时使用readObject()恢复。因为elementData是一个缓存数组，它通常预留一些空间，等空间不足
 再扩容，如果采用默认序列化，那这部分空间没有存储实际元素，因此采用writeObject、 readObject 序列化，只对有效的元素进行序列化，可以节省空间和时间。
 
+扩容时使用：Arrays.copyOf()
 
+其他：System.arrayCopy
+
+Arrays.copyOf()不仅仅只是拷贝数组中的元素，在拷贝元素时，会创建一个新的数组对象。而System.arrayCopy只拷贝已经存在数组元素。
+
+如果我们看过Arrays.copyOf()的源码就会知道，该方法的底层还是调用了System.arrayCopyOf()方法。
+
+而且System.arrayCopy如果改变目标数组的值原数组的值也会随之改变。
 
 
 

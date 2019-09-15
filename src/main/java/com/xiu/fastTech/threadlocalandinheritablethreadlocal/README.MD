@@ -304,10 +304,11 @@ get方法是使用的父类ThreadLocal中的get方法,其中调用getMap方法�
 
 
 
+ThreadLocal的静态内部类ThreadLocalMap为每个Thread都维护了一个数组table，
+ThreadLocal确定了一个数组下标，而这个下标就是value存储的对应位置。。
 
 
-
-
+https://www.jianshu.com/p/3c5d7f09dfbd
 
 
 
