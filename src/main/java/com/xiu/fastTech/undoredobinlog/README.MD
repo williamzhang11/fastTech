@@ -8,6 +8,7 @@ redo log(重做日志)提供前滚操作，保证持久性
 redo log记录数据修改后新数据的备份、冗杂的undo log、未提交的事务和回滚的事务，数据缓存到内存中，
 只是在事务提交前将redo log持久化到磁盘
 
+```
 A.事务开始.
 B.记录A=1到undo log.
 C.修改A=3.
@@ -17,6 +18,7 @@ F.修改B=4.
 G.记录B=4到redo log.
 H.将redo log写入磁盘。
 I.事务提交
+```
 
 记录undo日志，修改数据，记录redo log，持久化redo log，事务提交。
 
