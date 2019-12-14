@@ -6,6 +6,7 @@ public class User {
 		System.out.println("user static block init...");
 	}
 	
+	public static Integer test =1;
 	
 	public User(Integer age, String name) {
 		super();
